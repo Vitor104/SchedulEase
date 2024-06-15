@@ -1,7 +1,10 @@
 import React from "react";
 import styles from './contact.module.css';
 
-function Contact () {
+function Contact (props) {
+
+    const {setUserInput} = props;
+
     return (
         <div className={styles.container}>
             <h2>Add Contacts</h2>
@@ -9,11 +12,11 @@ function Contact () {
             <section>
                 <form className={styles.formulario}>
                     <label for='nome'>Nome: </label>
-                    <input className={styles.formChild} id="nome" type="text"></input><br></br>
+                    <input onChange={(e) => setUserInput (e.target.value)} className={styles.formChild} id="nome" type="text"></input><br></br>
                     <label for='contato'>Contato: </label>
-                    <input className={styles.formChild} id="contato" type="number"></input><br></br>
+                    <input onChange={(e) => setUserInput (e.target.value)} className={styles.formChild} id="contato" type="number"></input><br></br>
                     <label for="email">Email: </label>
-                    <input className={styles.formChild} id='email'></input><br></br>
+                    <input onChange={(e) => setUserInput (e.target.value)} className={styles.formChild} id='email'></input><br></br>
                     <button type="submit" className={styles.button}>Save</button>
                 </form>
             </section>

@@ -11,11 +11,8 @@ import Appointment from "../appointments/appointment";
 
 function App() {
 
-  const [userInput, setUserInput] = useState('');
-  const input = () => {
-
-  }
-
+  const [userInput, setUserInput] = useState({});
+  console.log(userInput);
 
   return (
     <BrowserRouter>
@@ -28,7 +25,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={ <Root />} />
-          <Route path='Contact' element={ <Contact />} />
+          <Route path='Contact' element={ <Contact setUserInput={setUserInput} />} />
           <Route path='Appointment' element={ <Appointment />} />
         </Routes>
       </main>
