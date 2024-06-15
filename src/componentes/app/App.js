@@ -1,5 +1,6 @@
 import styles from'./App.css';
 import { Route, Routes, BrowserRouter, NavLink } from 'react-router-dom';
+import React, {useState} from 'react';
 import Root from '../root/root';
 import Contact from "../contacts/contact";
 import Appointment from "../appointments/appointment";
@@ -9,6 +10,13 @@ import Appointment from "../appointments/appointment";
 
 
 function App() {
+
+  const [userInput, setUserInput] = useState('');
+  const input = () => {
+
+  }
+
+
   return (
     <BrowserRouter>
     <div className='appContainer'>
