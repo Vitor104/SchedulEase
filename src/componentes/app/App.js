@@ -11,23 +11,26 @@ import Appointment from "../appointments/appointment";
 
 function App() {
 
-  const [name, setName] = useState('');
-  const [sobrenome, setSobrenome] = useState('');
-  const [email, setEmail] = useState('');
-  const [contato, setContato] = useState('');
+  const [name, setName] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [contato, setContato] = useState([]);
+  const [divs, setDivs] = useState([]);
+
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log({name, sobrenome, email, contato});
     const dados = {
       nome: name,
-      sobrenome: sobrenome,
       email: email,
       contato: contato
     }
+    console.log(dados.nome);
+
+    setDivs([...divs, <div key={divs.length}>{name}, {email}, {contato}{divs.length + 1}</div>]);
+    console.log(divs);
   }
 
-  let dadosContact = submitForm.dados;
+  
 
   return (
     <BrowserRouter>
@@ -40,7 +43,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={ <Root />} />
-          <Route path='Contact' element={ <Contact setName={setName} setSobrenome={setSobrenome} setEmail={setEmail} setContato={setContato} submitForm={submitForm} name={name} />} />
+          <Route path='Contact' element={ <Contact setName={setName} setEmail={setEmail} setContato={setContato} submitForm={submitForm} name={name} divs={divs} />}/>
           <Route path='Appointment' element={ <Appointment />} />
         </Routes>
       </main>

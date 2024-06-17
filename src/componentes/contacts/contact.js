@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './contact.module.css';
 
 function Contact (props) {
 
     const {name, setName} = props;
-    const {sobrenome, setSobrenome} = props;
     const {email, setEmail} = props;
     const {contato, setContato} = props;
 
+    
     return (
         <div className={styles.container}>
             <h2>Add Contacts</h2>
@@ -16,9 +16,6 @@ function Contact (props) {
                 <form className={styles.formulario}>
                     <label for='nome'>Nome: </label>
                     <input onChange={(e) => setName (e.target.value)} className={styles.formChild} id="nome" type="text"></input><br></br>
-
-                    <label for='sobrenome'>Sobrenome: </label>
-                    <input onChange={(e) => setSobrenome (e.target.value)} className={styles.formChild} id="sobrenome" type="text"></input><br></br>
 
                     <label for="email">Email: </label>
                     <input onChange={(e) => setEmail (e.target.value)} className={styles.formChild} id='email'></input><br></br>
@@ -37,10 +34,14 @@ function Contact (props) {
                     <p>41281582810</p>
                     <p>afnaflvd@gmail.com</p>
                 </div>
-                <div key={index} className={styles.example}>
+                <div className={styles.example}>
                     <h5>{props.name}</h5>
                     <p></p>
                     <p></p>
+                </div>
+
+                <div className={styles.newDiv}>
+                    {props.divs}
                 </div>
             </section>
         </div>
