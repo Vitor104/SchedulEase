@@ -1,6 +1,6 @@
 import styles from'./App.css';
 import { Route, Routes, BrowserRouter, NavLink } from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Root from '../root/root';
 import Contact from "../contacts/contact";
 import Appointment from "../appointments/appointment";
@@ -11,25 +11,34 @@ import Appointment from "../appointments/appointment";
 
 function App() {
 
-  const [name, setName] = useState([]);
-  const [email, setEmail] = useState([]);
-  const [contato, setContato] = useState([]);
+  const [name, setName] = useState([{}]);
+  const [email, setEmail] = useState([{}]);
+  const [contato, setContato] = useState([{}]);
   const [divs, setDivs] = useState([]);
 
+  
 
   const submitForm = (e) => {
     e.preventDefault();
-    const dados = {
-      nome: name,
-      email: email,
-      contato: contato
+    setDivs([...divs, <div className='example' key={divs.length}>
+       {name}<br></br> 
+       {email}<br></br>
+      {contato}{divs.length + 1} 
+      </div>]);
+    
     }
-    console.log(dados.nome);
+      
+      
+      
+      
 
-    setDivs([...divs, <div key={divs.length}>{name}, {email}, {contato}{divs.length + 1}</div>]);
-    console.log(divs);
-  }
 
+  
+
+  useEffect(() => {
+    localStorage.setItem('dados', JSON.stringify(divs));
+  }, [divs])
+  
   
 
   return (
@@ -43,7 +52,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={ <Root />} />
-          <Route path='Contact' element={ <Contact setName={setName} setEmail={setEmail} setContato={setContato} submitForm={submitForm} name={name} divs={divs} />}/>
+          <Route path='Contact' element={ <Contact setName={setName} setEmail={setEmail} setContato={setContato}  submitForm={submitForm}  divs={divs} />}/>
           <Route path='Appointment' element={ <Appointment />} />
         </Routes>
       </main>
@@ -53,3 +62,11 @@ function App() {
 }
 
 export default App;
+
+//setName={setName} setEmail={setEmail} setContato={setContato} name={name}
+
+//setDivs([...divs, <div className='example' key={divs.length}>
+ // {name}<br></br> 
+ // {email}<br></br>
+ //{contato}{divs.length + 1} 
+ //</div>]);

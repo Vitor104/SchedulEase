@@ -40,7 +40,10 @@
 
 .newDiv {
     background-color: black;
+    display: flex;
+    flex-direction: column;
     color: white;
+    border: 5px solid orange;
     height: 15em;
     gap: 2em;
 }

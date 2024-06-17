@@ -6,7 +6,7 @@ function Contact (props) {
     const {name, setName} = props;
     const {email, setEmail} = props;
     const {contato, setContato} = props;
-
+   
     
     return (
         <div className={styles.container}>
@@ -18,10 +18,10 @@ function Contact (props) {
                     <input onChange={(e) => setName (e.target.value)} className={styles.formChild} id="nome" type="text"></input><br></br>
 
                     <label for="email">Email: </label>
-                    <input onChange={(e) => setEmail (e.target.value)} className={styles.formChild} id='email'></input><br></br>
+                    <input onChange={(e) => setContato (e.target.value)} className={styles.formChild} id='email'></input><br></br>
 
                     <label for="contato">Contato: </label>
-                    <input onChange={(e) => setContato (e.target.value)} className={styles.formChild} id='contato' type="number"></input><br></br>
+                    <input onChange={(e) => setEmail (e.target.value)} className={styles.formChild} id='contato' type="number"></input><br></br>
 
                     <button type="submit" onClick={props.submitForm} className={styles.button}>Save</button>
                 </form>
@@ -42,6 +42,7 @@ function Contact (props) {
 
                 <div className={styles.newDiv}>
                     {props.divs}
+                    <button>Delete</button>
                 </div>
             </section>
         </div>
