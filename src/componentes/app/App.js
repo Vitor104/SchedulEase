@@ -33,11 +33,14 @@ function App() {
       
 
 
-  
+  //useEffect(() => {
+    //let data = window.localStorage.getItem('dados');
+   //if (data !== null) setName(JSON.parse(data))
+  //})
 
   useEffect(() => {
-    localStorage.setItem('dados', JSON.stringify(divs));
-  }, [divs])
+    window.localStorage.setItem('dados', JSON.stringify(name, email, contato));
+  }, [name, email, contato])
   
   
 
