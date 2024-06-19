@@ -14,33 +14,42 @@ function App() {
   const [name, setName] = useState([{}]);
   const [email, setEmail] = useState([{}]);
   const [contato, setContato] = useState([{}]);
+  const [data, setData] = useState({
+      name: name,
+      email: email,
+      contato: contato
+  })
   const [divs, setDivs] = useState([]);
 
   
 
   const submitForm = (e) => {
     e.preventDefault();
-    setDivs([...divs, <div className='example' key={divs.length}>
-       {name}<br></br> 
-       {email}<br></br>
-      {contato}{divs.length + 1} 
-      </div>]);
+   // let content = {name, email, contato}
+  //  fetch('http://localhost:3000/Contact', {
+  //    method: 'POST',
+ //     headers: {"Content-Type": "application/json"},
+   //   body: JSON.stringify(content)
+//    }).then(() => {
+ //     console.log('hello, world');
+ //   })
+   
     
     }
       
       
       
-      
+   //useEffect(() => {
+  //    let change = window.localStorage.getItem('dados');
+   //   setData(JSON.parse(change))
+ //  })
+  
+    useEffect(() => {
+      window.localStorage.setItem('dados', JSON.stringify(data));
+    }, [data])
+    
 
 
-  //useEffect(() => {
-    //let data = window.localStorage.getItem('dados');
-   //if (data !== null) setName(JSON.parse(data))
-  //})
-
-  useEffect(() => {
-    window.localStorage.setItem('dados', JSON.stringify(name, email, contato));
-  }, [name, email, contato])
   
   
 
