@@ -1,7 +1,7 @@
 import styles from'./App.css';
 import { Route, Routes, BrowserRouter, NavLink } from 'react-router-dom';
 import React, {useState} from 'react';
-import Root from '../root/root';
+import Root from '../root/root'
 import Contact from "../contacts/contact";
 import Appointment from "../appointments/appointment";
 
