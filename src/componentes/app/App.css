@@ -2,8 +2,25 @@
   text-align: center;
 }
 
-.example {
-  background-color: aqua;
+.newDiv {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  border-radius: 15px;
 }
 
 
+.nav {
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.textNav {
+  text-decoration: none;
+  color: black;
+}

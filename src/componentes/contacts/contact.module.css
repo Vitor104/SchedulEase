@@ -1,6 +1,10 @@
 .container {
     background-color: blanchedalmond;
-    height: 45em;
+    height: 60em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .formulario {
@@ -39,11 +43,9 @@
 }
 
 .newDiv {
-    background-color: black;
     display: flex;
     flex-direction: column;
     color: white;
-    border: 5px solid orange;
-    height: 15em;
+    height: 30em;
     gap: 2em;
 }
