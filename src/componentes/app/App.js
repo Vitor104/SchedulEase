@@ -15,7 +15,9 @@ function App() {
   const [email, setEmail] = useState();
   const [contato, setContato] = useState();
   const [divs, setDivs] = useState([]);
-
+  const [all, setAll] = useState([
+    {name: name, email: email, contato: contato, value: 1}
+    ])
   
 
   const submitForm = (e) => {
@@ -25,12 +27,17 @@ function App() {
       setDivs([...divs, <div className='newDiv' key={divs.length}>
         {name}<br></br> 
         {email}<br></br>
-        {contato}{divs.length + 1} 
+        {contato}       
+        {divs.length + 1} 
         </div>]);    
     }
       
 
+    divs.map(getFullName);
 
+  function getFullName(item) {
+  return [item.firstname,item.lastname].join(" ");
+}
     
 
   return (
@@ -46,8 +53,10 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={ <Root />} />
+
           <Route path='Contact' element={ <Contact setName={setName} setEmail={setEmail} setContato={setContato}  submitForm={submitForm}  divs={divs} />}/>
-          <Route path='Appointment' element={ <Appointment />} />
+
+          <Route path='Appointment' element={ <Appointment teste={all} />} />
         </Routes>
       </main>
     </div>
