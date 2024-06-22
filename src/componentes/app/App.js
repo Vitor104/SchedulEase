@@ -15,9 +15,7 @@ function App() {
   const [email, setEmail] = useState();
   const [contato, setContato] = useState();
   const [divs, setDivs] = useState([]);
-  const [all, setAll] = useState([
-    {name: name, email: email, contato: contato, value: 1}
-    ])
+  const [option, setOption] = useState([]);
   
 
   const submitForm = (e) => {
@@ -30,14 +28,19 @@ function App() {
         {contato}       
         {divs.length + 1} 
         </div>]);    
+
+    setOption([...option, <option className={styles.newOption} key={option.length}>
+      {name}<br></br> 
+      {email}<br></br>
+      {contato}       
+      {option.length + 1}  
+  </option>]);  
     }
       
 
-    divs.map(getFullName);
 
-  function getFullName(item) {
-  return [item.firstname,item.lastname].join(" ");
-}
+    
+
     
 
   return (
@@ -56,7 +59,7 @@ function App() {
 
           <Route path='Contact' element={ <Contact setName={setName} setEmail={setEmail} setContato={setContato}  submitForm={submitForm}  divs={divs} />}/>
 
-          <Route path='Appointment' element={ <Appointment teste={all} />} />
+          <Route path='Appointment' element={ <Appointment option={option} />} />
         </Routes>
       </main>
     </div>

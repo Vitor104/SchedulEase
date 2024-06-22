@@ -24,3 +24,8 @@
   text-decoration: none;
   color: black;
 }
+
+.newOption {
+  display: flex;
+  flex-direction: column;
+}

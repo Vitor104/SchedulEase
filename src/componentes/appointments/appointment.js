@@ -1,7 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from './appointment.module.css'
 
 function Appointment (props) {
+
+   // let example = {
+  //      name: props.name,
+ //       email: props.email,
+ //     contato: props.contato
+  //  }
+
+  
+
+  // const [select, setSelect] = useState([{
+  //      name: name,
+  //      email: email,
+  //      contato: contato,
+  //      id: 1
+ //   }
+//])
+   //console.log(select);
+
+   
+    
+
     return (
         <main>
             <div className={styles.container}>
@@ -11,8 +32,10 @@ function Appointment (props) {
                     <input className={styles.formChild} id="title" type="text" required placeholder="Title"></input>
 
                     <label id='contact'>Contact: </label>
-                    <select name="contact" id="contact">
-                        <option value={props.teste}>No contact select</option>
+                    <select className={styles.formStyle} name="contact" id="contact">
+
+                        {props.option ? props.option : 'No contact'}
+
                     </select>
                    
 
@@ -25,6 +48,13 @@ function Appointment (props) {
                 </form>
                 <button type="submit" onClick={props.submitForm} className={styles.button}>Save</button>
             </div>
+
+            <section>
+                <h2>Appointment list</h2>
+                <div>
+                    {props.divs}
+                </div>
+            </section>
         </main>
     )
 }
