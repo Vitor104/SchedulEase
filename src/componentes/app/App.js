@@ -14,20 +14,27 @@ function App() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [contato, setContato] = useState();
-  const [divs, setDivs] = useState([]);
+ // const [divs, setDivs] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [option, setOption] = useState([]);
   
 
   const submitForm = (e) => {
     e.preventDefault();
 
+    setContacts([...contacts, {
+      name: name,
+      email: email,
+      contato: contato
+    }])
+
     
-      setDivs([...divs, <div className='newDiv' key={divs.length}>
-        {name}<br></br> 
-        {email}<br></br>
-        {contato}       
-        {divs.length + 1} 
-        </div>]);    
+   // setDivs([...divs, <div className='newDiv' key={divs.length}>
+   //     {name}<br></br> 
+    //    {email}<br></br>
+    //    {contato}       
+     //   {divs.length + 1} 
+    //    </div>]);    
 
     setOption([...option, <option className={styles.newOption} key={option.length}>
       {name}<br></br> 
@@ -57,7 +64,7 @@ function App() {
         <Routes>
           <Route path='/' element={ <Root />} />
 
-          <Route path='Contact' element={ <Contact setName={setName} setEmail={setEmail} setContato={setContato}  submitForm={submitForm}  divs={divs} />}/>
+          <Route path='Contact' element={ <Contact contacts={contacts} setName={setName} setEmail={setEmail} setContato={setContato} submitForm={submitForm}   />}/>
 
           <Route path='Appointment' element={ <Appointment option={option} />} />
         </Routes>
@@ -69,3 +76,6 @@ function App() {
 
 export default App;
 
+//divs={divs}
+
+//setName={setName} setEmail={setEmail} setContato={setContato}

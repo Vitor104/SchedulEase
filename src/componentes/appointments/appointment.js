@@ -34,7 +34,7 @@ function Appointment (props) {
                     <label id='contact'>Contact: </label>
                     <select className={styles.formStyle} name="contact" id="contact">
 
-                        {props.option ? props.option : 'No contact'}
+                        {props.option}
 
                     </select>
                    

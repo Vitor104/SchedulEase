@@ -30,7 +30,7 @@ function Contact (props) {
             <section>
                 <h3>Lista de Contatos</h3>
                 <div className={styles.newDiv}>
-                    {props.divs}
+                    {props.contacts}
                 </div>
             </section>
         </div>
