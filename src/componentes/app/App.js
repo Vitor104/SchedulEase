@@ -22,26 +22,26 @@ function App() {
   const [time, setTime] = useState();
   const [title, setTitle] = useState();
   
-  
-
+ 
   const submitForm = (e) => {
     e.preventDefault();
 
     
-    setDivs([...divs, <div className='newDiv' key={divs.length} >
-        {name}<br></br> 
-        {email}<br></br>
-        {contato}       
-        </div>]);    
+        setDivs([...divs, 
+         <div className='newDiv' key={divs.length}>
+          {name}<br></br> 
+          {email}<br></br>
+          {contato}  
+          {divs.length + 1}     
+        </div>])
 
-    
-
-      setOption([...option, 
-        <option className={styles.newOption} key={option.length}>
-        <p>{name} | </p>
-        <p>{email} | </p>   
-        <p>{contato}</p> 
-        </option>]);  
+          setOption([...option, 
+          <option className={styles.newOption} key={option.length}>
+            <p>{name} | </p>
+            <p>{email} | </p>   
+            <p>{contato}</p> 
+            {divs.length + 1}
+          </option>]);  
   }
 
       
@@ -96,3 +96,5 @@ export default App;
 
 // {divs.length + 1} 
 //{option.length + 1}  
+
+//setName={setName} setEmail={setEmail} setContato={setContato}
