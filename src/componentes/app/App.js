@@ -20,6 +20,7 @@ function App() {
   const [divsAptm, setDivsAptm] = useState([]);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
+  const [title, setTitle] = useState();
   
 
   const submitForm = (e) => {
@@ -32,29 +33,32 @@ function App() {
  //  }])
 
     
-    setDivs([...divs, <div className='newDiv' key={divs.length}>
+    setDivs([...divs, <div className='newDiv' key={divs.length} >
         {name}<br></br> 
         {email}<br></br>
         {contato}       
-        {divs.length + 1} 
         </div>]);    
 
       setOption([...option, <option className={styles.newOption} key={option.length}>
-      {contato}       
-      {option.length + 1}  
+      {name}<br></br>     
+      
 
   </option>]);  
   }
       const submitAptm = (e) => {
         e.preventDefault();
-        setDivsAptm([...divsAptm, <div className='newDiv' key={divs.length}>
-          {name}<br></br> 
-          {email}<br></br>
-          {contato}<br></br>
-          {description}<br></br>
-          {time}<br></br>
-          {date}       
-           
+        setDivsAptm([...divsAptm, 
+          <div className='newDivAptm' key={divs.length}>
+          <h2>{title}</h2>
+          <br></br> 
+          <p></p>
+          <br></br>
+          <h2>Details: </h2>
+          <p>{description}</p>
+          <br></br>
+          <p>{time}</p>
+          <br></br>
+          <p>{date}</p>       
           </div>]);    
   
       }
@@ -80,7 +84,7 @@ function App() {
 
           <Route path='Contact' element={ <Contact divs={divs} setName={setName} setEmail={setEmail} setContato={setContato} submitForm={submitForm}   />}/>
 
-          <Route path='Appointment' element={ <Appointment setDescription={setDescription} submit={submitAptm} option={option} divsAptm={divsAptm} setDate={setDate} setTime={setTime} />} />
+          <Route path='Appointment' element={ <Appointment setDescription={setDescription} submit={submitAptm} option={option} divsAptm={divsAptm} setDate={setDate} setTime={setTime} setTitle={setTitle} />} />
         </Routes>
       </main>
     </div>
@@ -94,3 +98,6 @@ export default App;
 
 //{name}<br></br> 
 //{email}<br></br>
+
+// {divs.length + 1} 
+//{option.length + 1}  

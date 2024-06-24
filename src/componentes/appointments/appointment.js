@@ -3,7 +3,7 @@ import styles from './appointment.module.css'
 
 function Appointment (props) {
 
-  const {setDescription, setTime, setDate} = props;
+  const {setDescription, setTime, setDate, setTitle} = props;
    
     
 
@@ -13,7 +13,7 @@ function Appointment (props) {
                 <h2>Add Appointments</h2>
                 <form className={styles.formContainer}>
                     <label id='Title'>Name: </label>
-                    <input className={styles.formChild} id="title" type="text" required placeholder="Title"></input>
+                    <input className={styles.formChild} onChange={(e) => setTitle (e.target.value)} id="title" type="text" required placeholder="Title"></input>
 
                     <label id="description">Description: </label>
                     <textarea id="description" onChange={(e) => setDescription (e.target.value)}></textarea>

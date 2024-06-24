@@ -29,3 +29,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.newDivAptm {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 15em;
+  margin: 0 auto;
+  border: none;
+  border-radius: 15px;
+  gap: 1.5em;
+}
