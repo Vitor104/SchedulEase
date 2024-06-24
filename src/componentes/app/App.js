@@ -22,15 +22,10 @@ function App() {
   const [time, setTime] = useState();
   const [title, setTitle] = useState();
   
+  
 
   const submitForm = (e) => {
     e.preventDefault();
-
-    //setContacts([...contacts, {
-  //    name: name,
-  //    email: email,
-  //    contato: contato
- //  }])
 
     
     setDivs([...divs, <div className='newDiv' key={divs.length} >
@@ -39,34 +34,34 @@ function App() {
         {contato}       
         </div>]);    
 
-      setOption([...option, <option className={styles.newOption} key={option.length}>
-      {name}<br></br>     
+    
+
+      setOption([...option, 
+        <option className={styles.newOption} key={option.length}>
+        <p>{name} | </p>
+        <p>{email} | </p>   
+        <p>{contato}</p> 
+        </option>]);  
+  }
+
       
 
-  </option>]);  
-  }
       const submitAptm = (e) => {
         e.preventDefault();
         setDivsAptm([...divsAptm, 
           <div className='newDivAptm' key={divs.length}>
           <h2>{title}</h2>
-          <br></br> 
-          <p></p>
-          <br></br>
+          <p>{name}</p>
+          <p>{email}</p>
+          <p>{contato}</p>
           <h2>Details: </h2>
           <p>{description}</p>
-          <br></br>
           <p>{time}</p>
-          <br></br>
           <p>{date}</p>       
           </div>]);    
   
       }
 
-
-    
-
-    
 
   return (
     <BrowserRouter>

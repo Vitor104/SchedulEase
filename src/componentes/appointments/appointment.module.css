@@ -41,4 +41,6 @@
 .formStyle {
     display: flex;
     flex-direction: column;
+    width: 22em;
+    text-align: center;
 }
