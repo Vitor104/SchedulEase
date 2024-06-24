@@ -3,23 +3,7 @@ import styles from './appointment.module.css'
 
 function Appointment (props) {
 
-   // let example = {
-  //      name: props.name,
- //       email: props.email,
- //     contato: props.contato
-  //  }
-
-  
-
-  // const [select, setSelect] = useState([{
-  //      name: name,
-  //      email: email,
-  //      contato: contato,
-  //      id: 1
- //   }
-//])
-   //console.log(select);
-
+  const {setDescription, setTime, setDate} = props;
    
     
 
@@ -31,6 +15,9 @@ function Appointment (props) {
                     <label id='Title'>Name: </label>
                     <input className={styles.formChild} id="title" type="text" required placeholder="Title"></input>
 
+                    <label id="description">Description: </label>
+                    <textarea id="description" onChange={(e) => setDescription (e.target.value)}></textarea>
+
                     <label id='contact'>Contact: </label>
                     <select className={styles.formStyle} name="contact" id="contact">
 
@@ -40,19 +27,19 @@ function Appointment (props) {
                    
 
                     <label id='date'>Date: </label>
-                    <input className={styles.formChild} id="date" required placeholder="Date" type="date"></input>
+                    <input className={styles.formChild} onChange={(e) => setDate (e.target.value)} id="date" required placeholder="Date" type="date"></input>
 
                     <label id='time'>Time: </label>
-                    <input className={styles.formChild} id="time" required placeholder="Time" type="time"></input>
+                    <input className={styles.formChild} id="time" onChange={(e) => setTime (e.target.value)} required placeholder="Time" type="time"></input>
 
                 </form>
-                <button type="submit" onClick={props.submitForm} className={styles.button}>Save</button>
+                <button type="submit" onClick={props.submit} className={styles.button}>Save</button>
             </div>
 
             <section>
                 <h2>Appointment list</h2>
                 <div>
-                    {props.divs}
+                    {props.divsAptm}
                 </div>
             </section>
         </main>
