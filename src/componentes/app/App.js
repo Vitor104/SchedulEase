@@ -21,6 +21,10 @@ function App() {
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [title, setTitle] = useState();
+  const [teste, setTeste] = useState(
+    [{
+      name: name, email: email, contato: contato
+    }]);
   
  
   const submitForm = (e) => {
@@ -29,10 +33,12 @@ function App() {
     
         setDivs([...divs, 
          <div className='newDiv' key={divs.length}>
+
           {name}<br></br> 
           {email}<br></br>
           {contato}  
-          {divs.length + 1}     
+          {divs.length + 1}   
+          
         </div>])
 
           setOption([...option, 
@@ -79,7 +85,23 @@ function App() {
 
           <Route path='Contact' element={ <Contact divs={divs} setName={setName} setEmail={setEmail} setContato={setContato} submitForm={submitForm}   />}/>
 
-          <Route path='Appointment' element={ <Appointment setDescription={setDescription} submit={submitAptm} option={option} divsAptm={divsAptm} setDate={setDate} setTime={setTime} setTitle={setTitle} />} />
+          <Route path='Appointment' element={ teste.map((exemplo) => {
+            console.log(exemplo);
+            return (
+              <Appointment 
+                name={exemplo.name}
+                email={exemplo.email}
+                contato={exemplo.contato}
+                setDate={setDate} 
+                setTime={setTime} 
+                setTitle={setTitle}
+                setDescription={setDescription} 
+                submit={submitAptm} 
+                option={option} 
+                divsAptm={divsAptm}
+              />
+            )
+          })} />
         </Routes>
       </main>
     </div>
@@ -97,4 +119,11 @@ export default App;
 // {divs.length + 1} 
 //{option.length + 1}  
 
-//setName={setName} setEmail={setEmail} setContato={setContato}
+//setDate={setDate} setTime={setTime} setTitle={setTitle}
+
+//{ <Appointment setDescription={setDescription} submit={submitAptm} option={option} divsAptm={divsAptm}  />}
+
+//{name}<br></br> 
+//{email}<br></br>
+//{contato}  
+//{divs.length + 1}   
