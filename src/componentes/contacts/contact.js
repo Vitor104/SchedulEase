@@ -3,9 +3,9 @@ import styles from './contact.module.css';
 
 function Contact (props) {
 
-    const {name, setName} = props;
-    const {email, setEmail} = props;
-    const {contato, setContato} = props;
+    //const {name, setName} = props;
+   // const {email, setEmail} = props;
+    //const {contato, setContato} = props;
    
     
     return (
@@ -15,13 +15,13 @@ function Contact (props) {
             <section>
                 <form className={styles.formulario}>
                     <label for='nome'>Nome: </label>
-                    <input required  placeholder="Name" onChange={(e) => setName (e.target.value)} className={styles.formChild} id="nome" type="text"></input><br></br>
+                    <input required  placeholder="Name" onChange={props.handleNameChange} className={styles.formChild} id="nome" type="text"></input><br></br>
 
                     <label for="email">Email: </label>
-                    <input required placeholder="Email" onChange={(e) => setEmail (e.target.value)} className={styles.formChild} id='email'></input><br></br>
+                    <input required placeholder="Email" onChange={props.handleEmailChange} className={styles.formChild} id='email'></input><br></br>
 
                     <label for="contato">Contato: </label>
-                    <input required placeholder="Contact" onChange={(e) => setContato (e.target.value)} className={styles.formChild} id='contato'></input><br></br>
+                    <input required placeholder="Contact" onChange={props.handleContatoChange} className={styles.formChild} id='contato'></input><br></br>
 
                     <button type="submit" onClick={props.submitForm} className={styles.button}>Save</button>
                 </form>
@@ -40,3 +40,4 @@ function Contact (props) {
 
 export default Contact;
 
+//onChange={(e) => setEmail (e.target.value)}
