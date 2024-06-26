@@ -3,7 +3,13 @@ import styles from './appointment.module.css'
 
 function Appointment (props) {
 
-  const {setDescription, setTime, setDate, setTitle} = props;
+    const [divsAptm, setDivsAptm] = useState([]);
+
+    const submitAptm = () => {
+         let newAptm = [props.option]
+
+         setDivsAptm(n => [...n, newAptm]);
+    }
    
     
 
@@ -13,13 +19,13 @@ function Appointment (props) {
                 <h2>Add Appointments</h2>
                 <form className={styles.formContainer}>
                     <label id='Title'>Name: </label>
-                    <input className={styles.formChild} onChange={(e) => setTitle (e.target.value)} id="title" type="text" required placeholder="Title"></input>
+                    <input className={styles.formChild} onChange={props.handleTitleChange} id="title" type="text" required placeholder="Title"></input>
 
                     <label id="description">Description: </label>
-                    <textarea id="description" onChange={(e) => setDescription (e.target.value)}></textarea>
+                    <textarea id="description" onChange={props.handleDescriptionChange}></textarea>
 
                     <label id='contact'>Contact: </label>
-                    <select className={styles.formStyle} name="contact" id="contact">
+                    <select value={props.option} className={styles.formStyle} name="contact" id="contact">
 
                         {props.option}
 
@@ -27,19 +33,27 @@ function Appointment (props) {
                    
 
                     <label id='date'>Date: </label>
-                    <input className={styles.formChild} onChange={(e) => setDate (e.target.value)} id="date" required placeholder="Date" type="date"></input>
+                    <input className={styles.formChild} onChange={props.handleDateChange} id="date" required placeholder="Date" type="date"></input>
 
                     <label id='time'>Time: </label>
-                    <input className={styles.formChild} id="time" onChange={(e) => setTime (e.target.value)} required placeholder="Time" type="time"></input>
+                    <input className={styles.formChild} id="time" onChange={props.handleTimeChange} required placeholder="Time" type="time"></input>
 
                 </form>
-                <button type="submit" onClick={props.submit} className={styles.button}>Save</button>
+                <button type="submit" onClick={submitAptm} className={styles.button}>Save</button>
             </div>
 
             <section>
                 <h2>Appointment list</h2>
+
+                <ul>
+                    {divsAptm.map((element, index) => 
+                    <li className='newLi' key={index}>
+                        {element.name}<br></br>
+                    </li>)}
+                </ul>
+
                 <div>
-                    {props.divsAptm}
+                    
                 </div>
             </section>
         </main>

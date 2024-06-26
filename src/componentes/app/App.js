@@ -20,7 +20,6 @@ function App() {
   /* APPOINTMENTS */ 
   const [description, setDescription] = useState();
   const [option, setOption] = useState([]);
-  const [divsAptm, setDivsAptm] = useState([]);
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [title, setTitle] = useState();
@@ -36,9 +35,9 @@ function App() {
 
     setOption(c => [...c, newContact])
 
-    setName('');
-    setEmail('');
-    setContato('');
+    setName(['']);
+    setEmail(['']);
+    setContato(['']);
 
 
   }  
@@ -73,21 +72,7 @@ function App() {
         setTitle(event.target.value);
       }
 
-      const submitAptm = (e) => {
-        e.preventDefault();
-        setDivsAptm([...divsAptm, 
-          <div className='newDivAptm' key={divs.length}>
-          <h2>{title}</h2>
-          <p>{name}</p>
-          <p>{email}</p>
-          <p>{contato}</p>
-          <h2>Details: </h2>
-          <p>{description}</p>
-          <p>{time}</p>
-          <p>{date}</p>       
-          </div>]);    
-  
-      }
+
 
 
   return (
@@ -122,12 +107,14 @@ function App() {
                 <option key={index}>
                 {element.name} | {element.email} | {element.contato}
                 </option>)}
-                setDate={setDate} 
-                setTime={setTime} 
-                setTitle={setTitle}
-                setDescription={setDescription} 
-                submit={submitAptm} 
-                divsAptm={divsAptm}
+                handleDateChange={handleDateChange} 
+                handleTimeChange={handleTimeChange} 
+                handleTitleChange={handleTitleChange}
+                handleDescriptionChange={handleDescriptionChange} 
+                description={description}
+                date={date}
+                time={time}
+                title={title}
               />
             
           } />
