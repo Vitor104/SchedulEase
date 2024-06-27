@@ -46,10 +46,7 @@ function Appointment (props) {
                 <h2>Appointment list</h2>
 
                 <ul>
-                    {divsAptm.map((element, index) => 
-                    <li className='newLi' key={index}>
-                        {element.name}<br></br>
-                    </li>)}
+                   {divsAptm.filter((element, i) => i === i)};
                 </ul>
 
                 <div>
@@ -61,3 +58,8 @@ function Appointment (props) {
 }
 
 export default Appointment;
+
+/* {divsAptm.filter((e, index) => 
+                    <li className={styles.newLi} key={index}>
+                        {e}<br></br>
+                    </li>)}*/

@@ -47,4 +47,7 @@
 
 .newLi {
     color: black;
+    height: 5em;
+    width: 10em;
+    background-color: red;
 }
