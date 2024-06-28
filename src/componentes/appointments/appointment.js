@@ -5,10 +5,12 @@ function Appointment (props) {
 
     const [divsAptm, setDivsAptm] = useState([]);
     const [teste, setTeste] = useState([]);
+    
 
     const submitAptm = (e) => {
         e.preventDefault();
-         let newAptm = {teste: teste}
+        console.log(teste)
+         let newAptm = teste;
 
          setDivsAptm(n => [...n, newAptm]);       
          
@@ -18,6 +20,7 @@ function Appointment (props) {
     const handleOptionChange = (event) => {
 
         setTeste(event.target.value);
+        
 
        //let newTest = event.target.value;
 
@@ -66,9 +69,7 @@ function Appointment (props) {
                 
                 {divsAptm.map((element, index) => 
                     <div className={styles.newLi} key={index}>
-                    {element.name}  <br></br>
-                    {element.email} <br></br>
-                    {element.contato}
+                    {element.name}
                     </div>)}
                 
 
