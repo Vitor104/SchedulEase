@@ -4,20 +4,28 @@ import styles from './appointment.module.css'
 function Appointment (props) {
 
     const [divsAptm, setDivsAptm] = useState([]);
+    const [teste, setTeste] = useState([]);
 
-    const submitAptm = () => {
-         let newAptm = [props.option]
+    const submitAptm = (e) => {
+        e.preventDefault();
+         let newAptm = {teste: teste}
 
-         setDivsAptm(n => [...n, newAptm]);
-
-
-         divsAptm.map((element, index) => 
-         <li className='newDiv' key={props.option.name}>
-            {element.name} <br></br>
-            {element.email} <br></br>
-            {element.contato}
-        </li>)
+         setDivsAptm(n => [...n, newAptm]);       
+         
+         
     }
+
+    const handleOptionChange = (event) => {
+
+        setTeste(event.target.value);
+
+       //let newTest = event.target.value;
+
+       // setDivsAptm(n => [...n, newTest]);
+
+       
+    }
+    
    
     
 
@@ -33,7 +41,7 @@ function Appointment (props) {
                     <textarea id="description" onChange={props.handleDescriptionChange}></textarea>
 
                     <label id='contact'>Contact: </label>
-                    <select className={styles.formStyle} name="contact" id="contact">
+                    <select className={styles.formStyle} name="contact" id="contact" onChange={handleOptionChange}>
 
 
                         {props.option}
@@ -55,9 +63,14 @@ function Appointment (props) {
             <section>
                 <h2>Appointment list</h2>
 
-                <ul>
-                   {divsAptm}
-                </ul>
+                
+                {divsAptm.map((element, index) => 
+                    <div className={styles.newLi} key={index}>
+                    {element.name}  <br></br>
+                    {element.email} <br></br>
+                    {element.contato}
+                    </div>)}
+                
 
                 <div>
                     
@@ -73,3 +86,14 @@ export default Appointment;
                     <li className={styles.newLi} key={index}>
                         {e}<br></br>
                     </li>)}*/
+
+                    /*
+                    {divsAptm.map((element, index) => 
+                    <li className={styles.newLi} key={index}>
+                    {element.name}  <br></br>
+                    {element.email} <br></br>
+                    {element.contato}
+                    {console.log(element.name)}
+                    </li>)}
+                    
+                    */ 
