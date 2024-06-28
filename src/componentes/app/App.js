@@ -33,7 +33,7 @@ function App() {
 
     setDivs(c => [...c, newContact]);
 
-    setOption(c => [...c, newContact])
+    setOption(o => [...o, newContact])
 
     setName(['']);
     setEmail(['']);
@@ -103,10 +103,10 @@ function App() {
 
           <Route path='Appointment' element={ 
               <Appointment 
-                option={option.map((element, index) => 
-                <option key={index}>
-                {element.name} | {element.email} | {element.contato}
-                </option>)}
+                option={option.map((e, i) => 
+                  <option key={i}>
+                  {e.name} | {e.email} | {e.contato}
+                  </option>)}
                 handleDateChange={handleDateChange} 
                 handleTimeChange={handleTimeChange} 
                 handleTitleChange={handleTitleChange}

@@ -9,6 +9,14 @@ function Appointment (props) {
          let newAptm = [props.option]
 
          setDivsAptm(n => [...n, newAptm]);
+
+
+         divsAptm.map((element, index) => 
+         <li className='newDiv' key={props.option.name}>
+            {element.name} <br></br>
+            {element.email} <br></br>
+            {element.contato}
+        </li>)
     }
    
     
@@ -25,9 +33,11 @@ function Appointment (props) {
                     <textarea id="description" onChange={props.handleDescriptionChange}></textarea>
 
                     <label id='contact'>Contact: </label>
-                    <select value={props.option} className={styles.formStyle} name="contact" id="contact">
+                    <select className={styles.formStyle} name="contact" id="contact">
+
 
                         {props.option}
+                        
 
                     </select>
                    
@@ -46,7 +56,7 @@ function Appointment (props) {
                 <h2>Appointment list</h2>
 
                 <ul>
-                   {divsAptm.filter((element, i) => i === i)};
+                   {divsAptm}
                 </ul>
 
                 <div>
