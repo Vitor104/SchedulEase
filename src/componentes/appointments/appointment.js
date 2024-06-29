@@ -61,13 +61,18 @@ function Appointment (props) {
                 <button type="submit" onClick={submitAptm} className={styles.button}>Save</button>
             </div>
 
-            <section>
+            <section className={styles.sectionDivs}>
                 <h2>Appointment list</h2>
 
                 {divsAptm.map((e) => {
                     return (
                         <div className={styles.newLi} key={uuidv4()}>
-                            {e}
+                            {props.title} <br></br>
+                            {props.description} <br></br>
+                            {e}<br></br>
+                            {props.date} <br></br>
+                            {props.time}
+
                         </div>
                     )
                 })}

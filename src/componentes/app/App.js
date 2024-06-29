@@ -36,10 +36,7 @@ function App() {
 
     setOption(o => [...o, newContact])
 
-    setName(null);
-    setEmail("");
-    setContato("");
-
+    
 
   }  
 
