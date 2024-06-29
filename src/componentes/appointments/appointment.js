@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import styles from './appointment.module.css'
+import styles from './appointment.module.css';
+import {v4 as uuidv4} from 'uuid';
 
 function Appointment (props) {
 
@@ -9,8 +10,8 @@ function Appointment (props) {
 
     const submitAptm = (e) => {
         e.preventDefault();
-        console.log(teste)
-         let newAptm = teste;
+        
+         let newAptm = {name: teste.name, email: teste.email};
 
          setDivsAptm(n => [...n, newAptm]);       
          
@@ -19,15 +20,12 @@ function Appointment (props) {
 
     const handleOptionChange = (event) => {
 
-        setTeste(event.target.value);
+       setTeste(event.target.value);
         
 
-       //let newTest = event.target.value;
-
-       // setDivsAptm(n => [...n, newTest]);
-
+     
        
-    }
+   }
     
    
     
@@ -66,13 +64,14 @@ function Appointment (props) {
             <section>
                 <h2>Appointment list</h2>
 
+                {divsAptm.map((e) => {
+                    return (
+                        <div className={styles.newLi} key={uuidv4()}>
+                            {e}
+                        </div>
+                    )
+                })}
                 
-                {divsAptm.map((element, index) => 
-                    <div className={styles.newLi} key={index}>
-                    {element.name}
-                    </div>)}
-                
-
                 <div>
                     
                 </div>
@@ -83,18 +82,13 @@ function Appointment (props) {
 
 export default Appointment;
 
-/* {divsAptm.filter((e, index) => 
-                    <li className={styles.newLi} key={index}>
-                        {e}<br></br>
-                    </li>)}*/
+/*
+ {divsAptm.map((e) => {
+                    return (
+                        <div className={styles.newLi} key={uuidv4()}>
+                            {e}
+                        </div>
+                    )
+                })}
 
-                    /*
-                    {divsAptm.map((element, index) => 
-                    <li className={styles.newLi} key={index}>
-                    {element.name}  <br></br>
-                    {element.email} <br></br>
-                    {element.contato}
-                    {console.log(element.name)}
-                    </li>)}
-                    
-                    */ 
+*/

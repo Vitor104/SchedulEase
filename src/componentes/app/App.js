@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import Root from '../root/root'
 import Contact from "../contacts/contact";
 import Appointment from "../appointments/appointment";
+import {v4 as uuidv4} from 'uuid';
 
 
 
@@ -35,9 +36,9 @@ function App() {
 
     setOption(o => [...o, newContact])
 
-    setName(['']);
-    setEmail(['']);
-    setContato(['']);
+    setName(null);
+    setEmail("");
+    setContato("");
 
 
   }  
@@ -73,6 +74,7 @@ function App() {
       }
 
 
+   
 
 
   return (
@@ -95,7 +97,7 @@ function App() {
             handleNameChange={handleNameChange} 
             handleEmailChange={handleEmailChange} 
             handleContatoChange={handleContatoChange} 
-            divs={divs.map((element, index) => <div className='newDiv' key={index}>
+            divs={divs.map((element) => <div className='newDiv' key={uuidv4()}>
             {element.name} <br></br>
             {element.email} <br></br>
             {element.contato}
@@ -103,8 +105,8 @@ function App() {
 
           <Route path='Appointment' element={ 
               <Appointment 
-                option={option.map((e, i) => 
-                  <option key={i}>
+                option={option.map((e) => 
+                  <option key={uuidv4()}>
                   {e.name} | {e.email} | {e.contato}
                   </option>)}
                 handleDateChange={handleDateChange} 

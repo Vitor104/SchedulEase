@@ -3,9 +3,6 @@ import styles from './contact.module.css';
 
 function Contact (props) {
 
-    //const {name, setName} = props;
-   // const {email, setEmail} = props;
-    //const {contato, setContato} = props;
    
     
     return (
