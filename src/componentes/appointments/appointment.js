@@ -11,9 +11,9 @@ function Appointment (props) {
     const submitAptm = (e) => {
         e.preventDefault();
         
-         let newAptm = {name: teste.name, email: teste.email};
+       //  let newAptm = {name: teste};
 
-         setDivsAptm(n => [...n, newAptm]);       
+         setDivsAptm(n => [...n, teste]);       
          
          
     }
@@ -71,6 +71,7 @@ function Appointment (props) {
                         </div>
                     )
                 })}
+           
                 
                 <div>
                     
@@ -90,5 +91,14 @@ export default Appointment;
                         </div>
                     )
                 })}
+
+
+
+
+                {divs.map((element) => <div className='newDiv' key={uuidv4()}>
+            {element.name} <br></br>
+            {element.email} <br></br>
+            {element.contato}
+            </div>)}
 
 */
