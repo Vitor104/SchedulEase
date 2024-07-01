@@ -36,5 +36,5 @@
 
 
 @keyframes example {
-    from {transform: translate(100px)}
+    from {transform: translateX(-70px)}
 }

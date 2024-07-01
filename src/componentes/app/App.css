@@ -42,9 +42,13 @@
   gap: 1.5em;
 }
 
-.textNav:active {
-  background-color: blanchedalmond;
-  height: 3em;
-  width: 6.5em;
+.active {
+  border-bottom: 5px solid blanchedalmond;
+  transform: translateX(20px);
 }
 
+@keyframes divNova {
+  0% {transform: translateX(-70px);}
+  10% {transform: translateX(-50px);}
+  50% {transform: translateX(20px);}
+}
