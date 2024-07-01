@@ -38,6 +38,7 @@
 
 .button:active {
     border: 3px solid black;
+    transform: translate(0px, -5px);
 }
 
 .formStyle {
@@ -49,10 +50,10 @@
     border-radius: 10px;
 }
 
-.newLi {
+.newAptm {
     color: black;
     height: 15em;
-    width: 10em;
+    width: 15em;
     background-color: red;
     display: flex;
     flex-direction: column;
@@ -62,6 +63,13 @@
 .sectionDivs {
     display: flex;
     flex-direction: column;
+}
+
+.newAptmContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 2em;
 }
 

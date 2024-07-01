@@ -39,7 +39,7 @@ function Appointment (props) {
                     <input className={styles.formChild} onChange={props.handleTitleChange} id="title" type="text" required placeholder="Title"></input>
 
                     <label id="description">Description: </label>
-                    <textarea id="description" onChange={props.handleDescriptionChange}></textarea>
+                    <textarea className={styles.formChild} id="description" onChange={props.handleDescriptionChange}></textarea>
 
                     <label id='contact'>Contact: </label>
                     <select className={styles.formStyle} name="contact" id="contact" onChange={handleOptionChange}>
@@ -57,17 +57,20 @@ function Appointment (props) {
                     <label id='time'>Time: </label>
                     <input className={styles.formChild} id="time" onChange={props.handleTimeChange} required placeholder="Time" type="time"></input>
 
+                    
                 </form>
+                
                 <button type="submit" onClick={submitAptm} className={styles.button}>Save</button>
             </div>
 
             <section className={styles.sectionDivs}>
                 <h2>Appointment list</h2>
 
+                <div className={styles.newAptmContainer}>
                 {divsAptm.map((e) => {
                     return (
-                        <div className={styles.newLi} key={uuidv4()}>
-                            {props.title} <br></br>
+                        <div className={styles.newAptm} key={uuidv4()}>
+                            {props.titleAptm} <br></br>
                             {props.description} <br></br>
                             {e}<br></br>
                             {props.date} <br></br>
@@ -76,11 +79,12 @@ function Appointment (props) {
                         </div>
                     )
                 })}
+                </div>
+
+    
            
                 
-                <div>
-                    
-                </div>
+                
             </section>
         </main>
     )

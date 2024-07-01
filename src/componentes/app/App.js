@@ -113,7 +113,7 @@ function App() {
                 description={description}
                 date={date}
                 time={time}
-                title={title}
+                titleAptm={title}
               />
             
           } />
