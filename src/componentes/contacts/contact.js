@@ -11,13 +11,13 @@ function Contact (props) {
 
             <section>
                 <form className={styles.formulario}>
-                    <label for='nome'>Nome: </label>
+                    <label for='nome' className={styles.label}>Nome: </label>
                     <input required  placeholder="Name" onChange={props.handleNameChange} className={styles.formChild} id="nome" type="text"></input><br></br>
 
-                    <label for="email">Email: </label>
+                    <label for="email" className={styles.label}>Email: </label>
                     <input required placeholder="Email" onChange={props.handleEmailChange} className={styles.formChild} id='email'></input><br></br>
 
-                    <label for="contato">Contato: </label>
+                    <label for="contato" className={styles.label}>Contato: </label>
                     <input required placeholder="Contact" onChange={props.handleContatoChange} className={styles.formChild} id='contato'></input><br></br>
 
                     <button type="submit" onClick={props.submitForm} className={styles.button}>Save</button>

@@ -41,3 +41,10 @@
   border-radius: 15px;
   gap: 1.5em;
 }
+
+.textNav:active {
+  background-color: blanchedalmond;
+  height: 3em;
+  width: 6.5em;
+}
+
