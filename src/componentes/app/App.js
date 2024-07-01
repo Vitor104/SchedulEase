@@ -71,7 +71,9 @@ function App() {
       }
 
 
-   
+   const submitAptm = (e) => {
+    const newAppointment = {title: title, description: description, date: date, time: time}
+   }
 
 
   return (
