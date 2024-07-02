@@ -24,6 +24,7 @@ function App() {
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [title, setTitle] = useState();
+  const [divsAptm, setDivsAptm] = useState([]);
   
  /* CONTACTS */
 
@@ -72,7 +73,10 @@ function App() {
 
 
    const submitAptm = (e) => {
-    const newAppointment = {title: title, description: description, date: date, time: time}
+    const newAppointment = {title: title, contact: [option.name], tdescription: description, date: date, time: time};
+
+    setDivsAptm(n => [...n, newAppointment]);
+
    }
 
 
@@ -112,13 +116,18 @@ function App() {
                 handleTimeChange={handleTimeChange} 
                 handleTitleChange={handleTitleChange}
                 handleDescriptionChange={handleDescriptionChange} 
-                description={description}
-                date={date}
-                time={time}
-                titleAptm={title}
-              />
+                submitAptm={submitAptm}
+                divsAptm={divsAptm.map((e) => <div className='newDiv' key={uuidv4()}>
+                {e.title} <br></br>
+                {e.contact}<br></br>
+                {e.description} <br></br>
+                {e.date} <br></br>
+                {e.time} 
+                </div>)} />}/>
             
-          } />
+              
+            
+      
         </Routes>
       </main>
     </div>
@@ -128,64 +137,7 @@ function App() {
 
 export default App;
 
-//divs={divs}
-
-//{name}<br></br> 
-//{email}<br></br>
-
-// {divs.length + 1} 
-//{option.length + 1}  
-
-//setDate={setDate} setTime={setTime} setTitle={setTitle}
-
-//{ <Appointment setDescription={setDescription} submit={submitAptm} option={option} divsAptm={divsAptm}  />}
-
-//element={ <Contact divs={divs} setName={setName} setEmail={setEmail} setContato={setContato} submitForm={submitForm} />}/>
-
-
-      // setDivs([...divs, divs.map((name, email, contato, index) => {
-     //   return (
-      //    <div key={index}>{name}</div>
-     //   )
-    //   })])
-
-      //    setOption([...option, 
-      //    <option className={styles.newOption} key={option.length}>
-      //      <p>{name} | </p>
-       //     <p>{email} | </p>   
-        //    <p>{contato}</p> 
-         //   {divs.length + 1}
-        //  </option>]);  
-
-        //element={ 
-       //   <Appointment 
-       //   name={name}
-        //  email={email}
-       //   contato={contato}
-       //   setDate={setDate} 
-       //   setTime={setTime} 
-       //   setTitle={setTitle}
-       //   setDescription={setDescription} 
-        //  submit={submitAptm} 
-        //  option={option} 
-        //  divsAptm={divsAptm}
-      //  />
-      
-  //  } />
-
-  /*
-   e.preventDefault();
-        setDivsAptm([...divsAptm, 
-          <div className='newDivAptm' key={divs.length}>
-          <h2>{title}</h2>
-          <p>{name}</p>
-          <p>{email}</p>
-          <p>{contato}</p>
-          <h2>Details: </h2>
-          <p>{description}</p>
-          <p>{time}</p>
-          <p>{date}</p>       
-          </div>]);    
-  
-  
-  */ 
+// description={description}
+               // date={date}
+              // time={time}
+               // titleAptm={title}

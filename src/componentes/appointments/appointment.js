@@ -4,10 +4,10 @@ import {v4 as uuidv4} from 'uuid';
 
 function Appointment (props) {
 
-    const [divsAptm, setDivsAptm] = useState([]);
-    const [teste, setTeste] = useState([]);
+  //  const [divsAptm, setDivsAptm] = useState([]);
+  //  const [teste, setTeste] = useState([]);
     
-
+/*
     const submitAptm = (e) => {
         e.preventDefault();
         
@@ -27,7 +27,7 @@ function Appointment (props) {
        
    }
     
-   
+   */
     
 
     return (
@@ -42,7 +42,7 @@ function Appointment (props) {
                     <textarea className={styles.formChild} id="description" onChange={props.handleDescriptionChange}></textarea>
 
                     <label id='contact'>Contact: </label>
-                    <select className={styles.formStyle} name="contact" id="contact" onChange={handleOptionChange}>
+                    <select className={styles.formStyle} name="contact" id="contact">
 
 
                         {props.option}
@@ -60,28 +60,17 @@ function Appointment (props) {
                     
                 </form>
                 
-                <button type="submit" onClick={submitAptm} className={styles.button}>Save</button>
+                <button type="submit" onClick={props.submitAptm} className={styles.button}>Save</button>
             </div>
 
             <section className={styles.sectionDivs}>
                 <h2>Appointment list</h2>
 
                 <div className={styles.newAptmContainer}>
-                {divsAptm.map((e) => {
-                    return (
-                        <div className={styles.newAptm} key={uuidv4()}>
-                            {props.titleAptm} <br></br>
-                            {props.description} <br></br>
-                            {e}<br></br>
-                            {props.date} <br></br>
-                            {props.time}
-
-                        </div>
-                    )
-                })}
+                
                 </div>
 
-    
+                {props.divsAptm}
            
                 
                 
@@ -95,19 +84,15 @@ export default Appointment;
 /*
  {divsAptm.map((e) => {
                     return (
-                        <div className={styles.newLi} key={uuidv4()}>
-                            {e}
+                        <div className={styles.newAptm} key={uuidv4()}>
+                            {props.titleAptm} <br></br>
+                            {props.description} <br></br>
+                            {e}<br></br>
+                            {props.date} <br></br>
+                            {props.time}
+
                         </div>
                     )
                 })}
-
-
-
-
-                {divs.map((element) => <div className='newDiv' key={uuidv4()}>
-            {element.name} <br></br>
-            {element.email} <br></br>
-            {element.contato}
-            </div>)}
 
 */
